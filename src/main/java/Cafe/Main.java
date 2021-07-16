@@ -13,6 +13,8 @@ public class Main {
         menu.printMenuItems();
 
         int num= customer.selectMenu();
+        if (num==-1)
+            return;
         MenuItem menuItem = menu.getMenuItem(num);
         Drink drink = barista.order(menuItem);
 
