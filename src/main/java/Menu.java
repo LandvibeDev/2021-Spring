@@ -8,13 +8,13 @@ public class Menu {
     void setMenuItem(String name,String type,String[] material)
     {
         MenuItem menuItem = new MenuItem();
-        menuItem.name = name;
-        menuItem.type = type;
-        menuItem.material = material;
-        if(!typeList.contains(menuItem.type))
-            typeList.add(menuItem.type);
-        if(nameList.isEmpty() || !nameList.contains(menuItem.name))
-            nameList.add(menuItem.name);
+        menuItem.setName(name);
+        menuItem.setType(type);
+        menuItem.setMaterial(material);
+        if(!typeList.contains(menuItem.getType()))
+            typeList.add(menuItem.getType());
+        if(nameList.isEmpty() || !nameList.contains(menuItem.getName()))
+            nameList.add(menuItem.getName());
 
         menuItemList.add(menuItem);
     }
@@ -22,7 +22,7 @@ public class Menu {
     {
         MenuItem menuItem = new MenuItem();
         for(int i=0;i< menuItemList.size();i++)
-            if(menuItemList.get(i).name.equals(name))
+            if(menuItemList.get(i).getName().equals(name))
                 return menuItem = menuItemList.get(i);
         return menuItem;
     }
@@ -35,8 +35,8 @@ public class Menu {
             System.out.println("<"+curType+">");
             for(int j=0;j< menuItemList.size();j++)     // 음료 list에서 type에 맞는것으로
             {
-                if(menuItemList.get(j).type.equals(curType))
-                    System.out.println("* "+ menuItemList.get(j).name);
+                if(menuItemList.get(j).getType().equals(curType))
+                    System.out.println("* "+ menuItemList.get(j).getName());
             }
         }
     }
