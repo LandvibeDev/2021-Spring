@@ -10,28 +10,17 @@ public class CoffeeShop {
     // 메뉴 입력
     void init(Menu menu)
     {
-        menu.typeList.add("음료");
+        menu.addMenuItem("아메리카노(ICE)","커피");
+        menu.addMenuItem("아메리카노(HOT)","커피");
+        menu.addMenuItem("카페라떼(ICE)","커피");
+        menu.addMenuItem("카페라떼(HOT)","커피");
+        menu.addMenuItem("바닐라라떼(ICE)","커피");
+        menu.addMenuItem("바닐라라떼(HOT)","커피");
 
-        String[] strings = {"물","에스프레소","얼음"};
-        menu.setMenuItem("아메리카노(ICE)","커피",strings);
-        strings = new String[]{"물", "에스프레소"};
-        menu.setMenuItem("아메리카노(HOT)","커피",strings);
-        strings = new String[]{"우유", "에스프레소","얼음"};
-        menu.setMenuItem("카페라떼(ICE)","커피",strings);
-        strings = new String[]{"우유", "에스프레소"};
-        menu.setMenuItem("카페라떼(HOT)","커피",strings);
-        strings = new String[]{"우유", "에스프레소","바닐라 시럽","얼음"};
-        menu.setMenuItem("바닐라라떼(ICE)","커피",strings);
-        strings = new String[]{"우유", "에스프레소","바닐라 시럽"};
-        menu.setMenuItem("바닐라라떼(HOT)","커피",strings);
+        menu.addMenuItem("딸기 스무디","스무디");
+        menu.addMenuItem("요거트 스무디","스무디");
 
-        strings = new String[]{"우유", "딸기"};
-        menu.setMenuItem("딸기 스무디","스무디",strings);
-        strings = new String[]{"우유", "요거트"};
-        menu.setMenuItem("요거트 스무디","스무디",strings);
-
-        strings = new String[]{"물", "아이스티 분말","얼음"};
-        menu.setMenuItem("아이스티","주스",strings);
+        menu.addMenuItem("아이스티","주스");
     }
 
 }
