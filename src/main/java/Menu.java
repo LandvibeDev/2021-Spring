@@ -1,9 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Menu {
     private List<MenuItem> menuItemLists = new ArrayList<>();
     private List<String> typeLists = new ArrayList<>();
+
+    public void setTypeLists(List<String> typeLists) {
+        this.typeLists = typeLists;
+    }
 
     public List<MenuItem> getMenuItemLists() {
         return menuItemLists;
@@ -12,29 +18,25 @@ public class Menu {
     public List<String> getTypeLists() {
         return typeLists;
     }
-    void addMenuItem(String name, String type) {
+    void addMenuItem(String name, String type) throws IllegalAccessException {
         MenuItem menuItem = new MenuItem(name,type);
         if(!typeLists.contains(menuItem.getType()))
-            typeLists.add(menuItem.getType());
+            throw new IllegalAccessException("해당 종류가 존재하지 않습니다.");
         menuItemLists.add(menuItem);
     }
     MenuItem getMenuItem(String name) {
-        for(int i=0;i< menuItemLists.size();i++)
-            if(menuItemLists.get(i).getName().equals(name))
-                return menuItemLists.get(i);
+        for(MenuItem menuItem : menuItemLists)
+            if(menuItem.getName().equals(name))
+                return menuItem;
         return null;
     }
     void printMenuItems() {
-        String curType;
-        for(int i=0;i<typeLists.size();i++)          // type 별로 분류
-        {
-            curType = typeLists.get(i);
-            System.out.println("<"+curType+">");
-            for(int j=0;j< menuItemLists.size();j++)     // 음료 list에서 type에 맞는것으로
-            {
-                if(menuItemLists.get(j).getType().equals(curType))
-                    System.out.println("* "+ menuItemLists.get(j).getName());
-            }
-        }
+        Map<String,List<MenuItem>> menuListByType = menuItemLists
+                .stream()
+                .collect(Collectors.groupingBy(MenuItem::getType));
+        menuListByType.forEach((key,value)->{
+            System.out.println("<"+key+">");
+            value.forEach(v -> System.out.println(v.getName()));
+        });
     }
 }

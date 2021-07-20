@@ -1,4 +1,4 @@
-public class Smoothie extends Drink{
+public class Smoothie extends Drink {
     Smoothie(String name, boolean isIced) {
         super(name, isIced);
     }

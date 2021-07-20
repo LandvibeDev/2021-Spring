@@ -1,4 +1,4 @@
-public class Coffee extends Drink{
+public class Coffee extends Drink {
 
     Coffee(String name, boolean isIced) {
         super(name, isIced);
@@ -9,7 +9,7 @@ public class Coffee extends Drink{
     }
 
     @Override
-    public void putIngredients(){
+    public void putIngredients() {
         putEspresso();
         super.putIngredients();
     }

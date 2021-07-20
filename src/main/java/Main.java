@@ -9,6 +9,11 @@ public class Main {
         coffeeShop.showManual();
 
         menu.printMenuItems();
-        Drink drink = barista.order(menu.getMenuItem("바닐라라떼(HOT)"));
+        try{
+            Drink drink = barista.order(menu.getMenuItem("바닐라라떼(ICE)"));
+            drink.putIngredients();
+        }catch (IllegalAccessException e){
+            System.out.println(e.toString());
+        }
     }
 }

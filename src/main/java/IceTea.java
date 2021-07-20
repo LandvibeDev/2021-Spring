@@ -1,4 +1,4 @@
-public class IceTea extends Drink{
+public class IceTea extends Drink {
 
 
     IceTea(String name, boolean isIced) {
@@ -9,7 +9,7 @@ public class IceTea extends Drink{
         System.out.println("아이스티 분말을 넣는다.");
     }
     @Override
-    public void putIngredients(){
+    public void putIngredients() {
         super.putWater();
         putIceTeaPowder();
         super.putIce();
