@@ -1,6 +1,11 @@
 public class Main {
+	public static void main(String[] args) {
+		Menu menu = new Menu();
+		menu.printMenuItems();
+		MenuItem menuItem = menu.getMenuItem(2);
 
-    public static void main(String[] args) {
-        System.out.println("Hello World! HiHi");
-    }
+		Barista barista = new Barista();
+		Drink drink = barista.order(menuItem);
+		drink.printName();
+	}
 }
