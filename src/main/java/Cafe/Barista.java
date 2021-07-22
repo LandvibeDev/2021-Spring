@@ -1,46 +1,56 @@
 package Cafe;
 
 public class Barista {
-    Drink order(MenuItem m){ //만드는법 프린트하기
-        String name=m.getName();
-        Drink drink = new Drink(name);
-        if(name.contains("아메리카노"))
-        {
-            System.out.println("1. 물을 넣는다.\r\n"
-                    + "2. 에스프레소를 넣는다.\r\n"
-                    + "3. (ice) 얼음을 넣는다.");
+    Drink order(MenuItem m){
+    //스위치 케이스
+        switch (m.getName()){
+            case "아메리카노": {
+                Drink drink=new Americano("아메리카노", false);
+                drink.putIngredients();
+                return drink;
+            }
+            case "아이스 아메리카노": {
+                Drink drink=new Americano("아메리카노", true);
+                drink.putIngredients();
+                return drink;
+            }
+            case "카페 라떼": {
+                Drink drink=new CaffeLatte("카페 라떼", false);
+                drink.putIngredients();
+                return drink;
+            }
+            case "아이스 카페 라떼": {
+                Drink drink=new CaffeLatte("아이스 카페 라떼", true);
+                drink.putIngredients();
+                return drink;
+            }
+            case "아이스 바닐라 라떼": {
+                Drink drink=new VanillaLatte("아이스 바닐라 라떼", true);
+                drink.putIngredients();
+                return drink;
+            }
+            case "바닐라 라떼": {
+                Drink drink=new VanillaLatte("바닐라 라떼", false);
+                drink.putIngredients();
+                return drink;
+            }
+            case "딸기 스무디": {
+                Drink drink=new StrawberrySmoothie("딸기 스무디", true);
+                drink.putIngredients();
+                return drink;
+            }
+            case "요거트 스무디": {
+                Drink drink=new YogurtSmoothie("요거트 스무디", true);
+                drink.putIngredients();
+                return drink;
+            }
+            case "아이스티": {
+                Drink drink=new IceTea("아이스티", true);
+                drink.putIngredients();
+                return drink;
+            }
+            default:
+                return null;
         }
-        else if(name.contains("카페 라떼"))
-        {
-            System.out.println("1. 우유를 넣는다.\r\n"
-                    + "2. 에스프레소를 넣는다.\r\n"
-                    + "3. (ice) 얼음을 넣는다.");
-        }
-        else if(name.contains("바닐라 라떼"))
-        {
-            System.out.println("1. 우유를 넣는다.\r\n"
-                    + "2. 에스프레소를 넣는다.\r\n"
-                    + "3. 바닐라 시럽을 넣는다.\r\n"
-                    + "4. (ice) 얼음을 넣는다.");
-        }
-        else if(name.contains("딸기"))
-        {
-            System.out.println("1. 우유를 넣는다.\r\n"
-                    + "2. 딸기를 넣는다.\r\n"
-                    + "3. 믹서기를 이용해 섞는다.");
-        }
-        else if(name.contains("요거트"))
-        {
-            System.out.println("1. 우유를 넣는다.\r\n"
-                    + "2. 요거트를 넣는다.\r\n"
-                    + "3. 믹서기를 이용해 섞는다.");
-        }
-        else if(name.equals("아이스티"))
-        {
-            System.out.println("1. 물을 넣는다.\r\n"
-                    + "2. 아이스티 분말을 넣는다.\r\n"
-                    + "3. 얼음을 넣는다.");
-        }
-        return drink;
     }
 }

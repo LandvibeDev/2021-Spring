@@ -6,17 +6,17 @@ import java.util.HashMap;
 
 public class Menu {
     HashMap<Integer, MenuItem> menuItems=new HashMap<>();
-    String[] list = new String[]{"아메리카노", "아이스 아메리카노", "카페 라떼", "아이스 카페 라떼", "바닐라 라떼", "아이스 바닐라 라떼",
-            "딸기 스무디", "요거트 스무디", "아이스티"};
+
     public Menu(){
-        int i=0;
-        for (String name : list)
-        {
-            MenuItem in = new MenuItem();
-            in.setName(name);
-            menuItems.put(i,in);
-            i++;
-        }
+        menuItems.put(0,new MenuItem("아메리카노"));
+        menuItems.put(1,new MenuItem("아이스 아메리카노"));
+        menuItems.put(2,new MenuItem("카페 라떼"));
+        menuItems.put(3,new MenuItem("아이스 카페 라떼"));
+        menuItems.put(4,new MenuItem("바닐라 라떼"));
+        menuItems.put(5,new MenuItem("아이스 바닐라 라떼"));
+        menuItems.put(6,new MenuItem("딸기 스무디"));
+        menuItems.put(7,new MenuItem("요거트 스무디"));
+        menuItems.put(8,new MenuItem("아이스티"));
     }
 
     void printMenuItems(){
