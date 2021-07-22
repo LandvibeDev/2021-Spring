@@ -6,9 +6,10 @@ public class Main {
 
         menu.printMenuItems();
 
-        MenuItem menuItem=menu.getMenuItem(1);
+        MenuItem menuItem=menu.getMenuItem(9);
         Drink drink=barista.order(menuItem);
         drink.printName();
+
 
 
     }
