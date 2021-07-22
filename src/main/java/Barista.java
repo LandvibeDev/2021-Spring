@@ -1,6 +1,5 @@
 
 public class Barista {
-	
 	public Drink order(MenuItem menuItem) {
 		Drink drink = null;
 		switch(menuItem.getIdx()) {
