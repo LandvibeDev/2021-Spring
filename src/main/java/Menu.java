@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Menu {
 
-    private Vector<MenuItem> menuItems = new Vector<>();
+    private ArrayList<MenuItem> menuItems = new ArrayList<>();
 
     Menu()
     {

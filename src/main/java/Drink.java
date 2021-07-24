@@ -1,37 +1,38 @@
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Drink {
-     String name;
-     Boolean isIce = false;
-     Boolean isSmth = false;
-     //Boolean isLatte = false;
-     Vector<String> ingredients = new Vector();
+    protected String name;
+    protected Boolean isIce = false;
+    protected ArrayList<String> ingredients = new ArrayList<>();
 
 
 
-    public void printName()
-    {
+    public void printName(){
         System.out.println(name);
+        System.out.println();
     }
 
-    public void setName(String _name)
-    {
-        name = _name;
+    public void setName(String name){
+        this.name = name;
     }
 
-//    public Vector getIngredients()
-//    {
-//        return ingredients;
-//    }
-
-    public Boolean getIsIce()
-    {
-        return isIce;
+    public void putIce(){
+        //ingredients.add("얼음");
+        System.out.println("얼음을 넣는다.");
     }
 
-    public void addIce()
-    {
-        ingredients.add("얼음");
+    public void putWater(){
+        //ingredients.add("물");
+        System.out.println("물을 넣는다.");
+    }
+
+    //얼음
+    public void putIngredients(){
+        if(isIce){
+            putIce();
+        }
+        System.out.println();
     }
 
 
