@@ -1,56 +1,41 @@
 public class Barista {
-    private static int idx;
+
     private String name;
 
-    static Drink drink;
+    //public Drink drink;
 
-    public static Drink order(MenuItem item)
-    {
-        //name = item.getName();
-        idx = item.getIdx();
-        makeDrink(idx);
-
-        for(String s : drink.ingredients)
-        {
-            System.out.println(s + "을(를) 넣는다.");
-        }
-        if(drink.isSmth)
-            System.out.println("믹서기를 이용해 섞는다.");
-
-        return drink;
+     static Drink order(MenuItem item){ //static 으로 안 하면 에러뜸,,!
+        int idx = item.getIdx();
+        return makeDrink(idx);
     }
 
-    public static void makeDrink(int _idx)
-    {
-        //if(_idx == "아메리카노(hot)")   drink = new HotAme();
-        //else if(_name == "아메리카노 ")
+    public static Drink makeDrink(int _idx){
+         //Drink drink = null;
+        Drink drink = new Drink(); //어차피 덮어쓸건데, new Drink랑 null 중에 뭐가 나은지
 
-        switch (_idx)
-        {
-            case 0: drink = new HotAme();
+        switch (_idx){
+            case 0: drink = new Americano();
                     break;
-            case 1: drink = new IceAme();
+            case 1: drink = new Americano(true);
                     break;
-            case 2: drink = new HotLatte();
-                break;
-            case 3: drink = new IceLatte();
-                break;
-            case 4 : drink = new HotVanLatte();
-                break;
-            case 5: drink = new IceVanLatte();
-                break;
-            case 6: drink = new StrSmth();
-                break;
-            case 7: drink = new YogSmth();
-                break;
+            case 2: drink = new Latte();
+                    break;
+            case 3: drink = new Latte(true);
+                    break;
+            case 4 : drink = new VanillaLatte();
+                    break;
+            case 5: drink = new VanillaLatte(true);
+                    break;
+            case 6: drink = new StrwSmoothie();
+                    break;
+            case 7: drink = new YgrtSmoothie();
+                    break;
             case 8: drink = new IceTea();
-                break;
+                    break;
         }
 
-        if(drink.getIsIce())
-        {
-            drink.addIce();
-        }
+        drink.putIngredients();
+        return drink;
     }
 
 
